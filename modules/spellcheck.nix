@@ -1,11 +1,12 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }: let
   harper-ls = lib.getExe pkgs.harper;
 in {
-  languages = {
+  languages = lib.mkIf config.nouritsu.helix.spellcheck {
     language-server = {
       harper-ls = {
         command = harper-ls;

@@ -3,52 +3,48 @@
   libhelix,
   ...
 }: {
-  languages = lib.mkIf (libhelix.lang_is_supported "cook-cli") {
-    language = [
-      {
-        name = "cooklang";
-        language-id = "markdown";
-        scope = "source.cooklang";
-        injection-regex = "cook(lang)?";
-        file-types = ["cook"];
-        roots = ["config"];
+  helix'.languages = lib.mkIf (libhelix.lang_is_supported "cook-cli") [
+    {
+      name = "cooklang";
+      language-id = "markdown";
+      scope = "source.cooklang";
+      injection-regex = "cook(lang)?";
+      file-types = ["cook"];
+      roots = ["config"];
 
-        language-servers = [
-          "harper-ls"
-        ];
+      language-servers = [];
 
-        auto-format = false;
+      auto-format = false;
 
-        comment-tokens = ["--"];
-        block-comment-tokens = [
-          {
-            start = "[-";
-            end = "-]";
-          }
-        ];
+      comment-tokens = ["--"];
+      block-comment-tokens = [
+        {
+          start = "[-";
+          end = "-]";
+        }
+      ];
 
-        auto-pairs = {
-          "(" = ")";
-          "{" = "}";
-          "[" = "]";
-          "\"" = "\"";
-        };
+      auto-pairs = {
+        "(" = ")";
+        "{" = "}";
+        "[" = "]";
+        "\"" = "\"";
+      };
 
-        indent = {
-          tab-width = 2;
-          unit = "  ";
-        };
-      }
-    ];
+      indent = {
+        tab-width = 2;
+        unit = "  ";
+      };
+    }
+  ];
 
-    grammar = [
-      {
-        name = "cooklang";
-        source = {
-          git = "https://github.com/addcninblue/tree-sitter-cooklang";
-          rev = "4ebe237c1cf64cf3826fc249e9ec0988fe07e58e";
-        };
-      }
-    ];
-  };
+  languages.grammar = lib.mkIf (libhelix.lang_is_supported "cook-cli") [
+    {
+      name = "cooklang";
+      source = {
+        git = "https://github.com/addcninblue/tree-sitter-cooklang";
+        rev = "4ebe237c1cf64cf3826fc249e9ec0988fe07e58e";
+      };
+    }
+  ];
 }

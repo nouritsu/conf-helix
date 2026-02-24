@@ -42,7 +42,15 @@
               spellcheck = true;
               integrations.lazygit = true;
               integrations.yazi = true;
-              languages = [];
+              languages = [
+                "c"
+                "cook-cli"
+                "nix"
+                "python"
+                "rust"
+                "slint"
+                "typst"
+              ];
             };
           }
           (import-tree ./modules)

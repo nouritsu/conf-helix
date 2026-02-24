@@ -35,7 +35,26 @@
       default = "";
       description = "TOML keybindings for space minor mode";
     };
+
+    languages = lib.mkOption {
+      type = lib.types.listOf lib.types.attrs;
+      default = [];
+      description = "Language configurations (harper-ls injected automatically when spellcheck is enabled)";
+    };
   };
+
+  config.languages.language =
+    map (
+      lang:
+        if config.nouritsu.helix.spellcheck
+        then
+          lang
+          // {
+            language-servers = (lang.language-servers or []) ++ ["harper-ls"];
+          }
+        else lang
+    )
+    config.helix'.languages;
 
   config.extraSettings = let
     cfg = config.helix';
