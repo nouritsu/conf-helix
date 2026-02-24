@@ -1,15 +1,10 @@
-{config, ...}: {
+{
+  config,
+  supported_languages,
+  ...
+}: {
   _module.args.libhelix = {
-    supported_languages = [
-      "c"
-      "cook-cli"
-      "nix"
-      "python"
-      "rust"
-      "slint"
-      "typst"
-    ];
-
+    inherit supported_languages;
     lang_is_supported = lang: builtins.elem lang config.nouritsu.helix.languages;
   };
 }

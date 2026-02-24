@@ -24,37 +24,10 @@
   };
 
   outputs = inputs: let
-    inherit (inputs) nixpkgs flake-parts wrappers helix import-tree;
+    inherit (inputs) flake-parts;
   in
     flake-parts.lib.mkFlake {inherit inputs;} {
+      imports = [./packages.nix];
       systems = ["x86_64-linux" "aarch64-linux"];
-
-      perSystem = {system, ...}: {
-        packages.default = wrappers.wrappers.helix.wrap [
-          ./lib.nix
-          ./options.nix
-          {
-            pkgs = import nixpkgs {inherit system;};
-            package = helix.packages.${system}.helix;
-
-            nouritsu.helix = {
-              enable = true;
-              spellcheck = true;
-              integrations.lazygit = true;
-              integrations.yazi = true;
-              languages = [
-                "c"
-                "cook-cli"
-                "nix"
-                "python"
-                "rust"
-                "slint"
-                "typst"
-              ];
-            };
-          }
-          (import-tree ./modules)
-        ];
-      };
     };
 }
