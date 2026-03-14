@@ -24,10 +24,14 @@
   };
 
   outputs = inputs: let
-    inherit (inputs) flake-parts;
+    inherit (inputs) flake-parts import-tree;
   in
     flake-parts.lib.mkFlake {inherit inputs;} {
-      imports = [./packages.nix];
+      imports = [
+        ./options.nix
+        (import-tree ./modules)
+        (import-tree ./packages)
+      ];
       systems = ["x86_64-linux" "aarch64-linux"];
     };
 }

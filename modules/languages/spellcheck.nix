@@ -1,13 +1,12 @@
 {
-  lib,
-  pkgs,
-  config,
-  ...
-}: let
-  harper-ls = lib.getExe pkgs.harper;
-in {
-  languages = lib.mkIf config.nouritsu.helix.spellcheck {
-    language-server = {
+  flake.nixosModules.spellcheck = {
+    lib,
+    pkgs,
+    ...
+  }: let
+    harper-ls = lib.getExe pkgs.harper;
+  in {
+    languages.language-server = {
       harper-ls = {
         command = harper-ls;
         args = ["--stdio"];

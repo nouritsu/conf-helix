@@ -1,20 +1,22 @@
 {
-  helix'.binds_space =
-    /*
-    toml
-    */
-    ''
-      b = "buffer_picker"
-    '';
+  flake.nixosModules.keybinds = {...}: {
+    helix'.binds_space =
+      /*
+      toml
+      */
+      ''
+        b = "buffer_picker"
+      '';
 
-  settings.keys = rec {
-    normal = {
-      left = "goto_previous_buffer";
-      right = "goto_next_buffer";
-    };
+    settings.keys = rec {
+      normal = {
+        left = "goto_previous_buffer";
+        right = "goto_next_buffer";
+      };
 
-    select = {
-      inherit (normal) left right;
+      select = {
+        inherit (normal) left right;
+      };
     };
   };
 }
