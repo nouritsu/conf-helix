@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.keybinds = {...}: {
+  flake.nixosModules.whelix-keybinds-lsp = {...}: {
     helix'.binds_g =
       /*
       toml

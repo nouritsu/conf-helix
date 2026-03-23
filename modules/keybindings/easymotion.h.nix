@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.keybinds = {...}: {
+  flake.nixosModules.whelix-keybinds-easymotion = {...}: {
     settings = {
       editor = {
         jump-label-alphabet = "asdqwezxcrfvtgbyhnujmikolp"; # prefer keys under left hand

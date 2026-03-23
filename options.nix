@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.options = {
+  flake.nixosModules.whelix-options = {
     lib,
     config,
     ...

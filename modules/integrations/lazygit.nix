@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.integration-lazygit = {
+  flake.nixosModules.whelix-integrations-lazygit = {
     lib,
     pkgs,
     ...

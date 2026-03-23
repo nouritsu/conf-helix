@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.settings = {
+  flake.nixosModules.whelix-settings-editor = {
     lib,
     pkgs,
     ...

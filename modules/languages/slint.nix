@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.lsp-slint = {
+  flake.nixosModules.whelix-lsp-slint = {
     lib,
     pkgs,
     ...

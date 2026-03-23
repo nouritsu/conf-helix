@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.lsp-typst = {
+  flake.nixosModules.whelix-lsp-typst = {
     lib,
     pkgs,
     ...

@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.lsp-cook-cli = {...}: {
+  flake.nixosModules.whelix-lsp-cook-cli = {...}: {
     languages.language = [
       {
         name = "cooklang";

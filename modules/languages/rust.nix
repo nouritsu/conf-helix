@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.lsp-rust = {
+  flake.nixosModules.whelix-lsp-rust = {
     lib,
     pkgs,
     ...

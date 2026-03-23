@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.integration-yazi = {
+  flake.nixosModules.whelix-integrations-yazi = {
     lib,
     pkgs,
     ...

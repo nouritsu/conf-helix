@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.spellcheck = {
+  flake.nixosModules.whelix-spellcheck = {
     lib,
     pkgs,
     ...
